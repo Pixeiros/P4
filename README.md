@@ -54,7 +54,7 @@ ejercicios indicados.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
-
+  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   PARÁMETROS LPCC
   - lpc_order=8
@@ -68,16 +68,16 @@ ejercicios indicados.
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
   
-  	Coeficientes LP
   <img src="img/lp.png" width="500" align="center">
   
-  	Coeficientes LPCC
   <img src="img/lpcc.png" width="500" align="center">
   
-  	Coeficientes MFCC
   <img src="img/mfcc.png" width="500" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+    La parametrización cuyos coeficientes tiene más información es la del MFCC.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
