@@ -93,7 +93,7 @@ ejercicios indicados.
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos. Comente el
   resultado obtenido y discuta si el modelado mediante GMM permite diferenciar las señales de uno y otro.
   
-  <img src="img/1.png" width="500" align="center">
+  <img src="img/1.png" width="700" align="center">
 
 ### Reconocimiento del locutor.
 
