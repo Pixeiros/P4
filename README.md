@@ -29,38 +29,36 @@ ejercicios indicados.
   (LPCC), en su fichero <code>scripts/wav2lpcc.sh</code>:
   
   > El pipeline siguiente es el usado para calcular los coeficientes de predicción lineal (LPCC) en el 
-  > script wav2lpcc.sh:
+    script wav2lpcc.sh:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 |
 	$LPC -l 200 -m $lpc_order | $LPCC -m $lpcc_order -M $cepstrum_order > $base.lpcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
   > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-  > la convertimos a raw, calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
+    la convertimos a raw, calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
 
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
   > El pipeline siguiente es el usado para calcular los coeficientes en l'escala Mel Cepstrum (MFCC) en 
-  > el script wav2lpcc.sh:
+    el script wav2lpcc.sh:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 | $MFCC -l 200 
 	-m $mfcc_order > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
   > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-  > la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
+    la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
   
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
   
   > PARÁMETROS LPCC
-  > - lpc_order=8
-  > - lpcc_order=8
-  > - cepstrum_order=8
+    - lpc_order=8
+    - lpcc_order=8
+    - cepstrum_order=8
   
   > PARÁMETROS MFCC
-  > - mfcc_order=8
+    - mfcc_order=8
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
@@ -73,7 +71,38 @@ ejercicios indicados.
   
   + ¿Cuál de ellas le parece que contiene más información?
    >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
-   >  el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3.
+      el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
+      gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+	%% Abrimos coeficientes LP
+	fileID = fopen('lp_3_4.txt','r');
+	formatSpec = '%f';
+	sizeA = [2 Inf];
+	LP = fscanf(fileID,formatSpec,sizeA);
+	LP = LP';
+	%% Abrimos coeficientes LPCC
+	fileID = fopen('lpcc_3_4.txt','r');
+	formatSpec = '%f';
+	sizeA = [2 Inf];
+	LPCC = fscanf(fileID,formatSpec,sizeA);
+	LPCC = LPCC';
+	%% Abrimos coeficientes LP
+	fileID = fopen('mfcc_3_4.txt','r');
+	formatSpec = '%f';
+	sizeA = [2 Inf];
+	MFCC = fscanf(fileID,formatSpec,sizeA);
+	MFCC = MFCC';
+	%% Plots
+	figure (1)
+	plot(LP(:,1),LP(:,2),'.r');
+	title('Coeficientes LP');
+	figure (2)
+	plot(LPCC(:,1),LPCC(:,2),'.r');
+	title('Coeficientes LPCC');
+	figure (3)
+	plot(MFCC(:,1),MFCC(:,2),'.r');
+	title('Coeficientes MFCC');
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
   
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
