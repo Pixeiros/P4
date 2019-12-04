@@ -75,9 +75,10 @@ ejercicios indicados.
    >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
       el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
       gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-	'%% Abrimos coeficientes LP'
-	fileID = fopen('lp_3_4.txt','r');
+
+     ####'%% Abrimos coeficientes LP'
+     
+     	fileID = fopen('lp_3_4.txt','r');
 	formatSpec = '%f';
 	sizeA = [2 Inf];
 	LP = fscanf(fileID,formatSpec,sizeA);
