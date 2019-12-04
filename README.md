@@ -29,10 +29,13 @@ ejercicios indicados.
   (LPCC), en su fichero <code>scripts/wav2lpcc.sh</code>:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-# A modo de ejemplo de cómo incorporar código fuente a un fichero markdown, el pipeline siguiente
-# es el usado para calcular los coeficientes de predicción lineal (LP) en el script wav2lp.sh:
-sox $inputfile -t raw - | $X2X +sf | $FRAME -l 400 -p 80 | $WINDOW -l 400 -L 400 |
-        $LPC -l 400 -m $lpc_order > $base.lp
+#El pipeline siguiente es el usado para calcular los coeficientes de predicción lineal (LPCC) en el 
+#script wav2lpcc.sh:
+sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 |
+	$LPC -l 200 -m $lpc_order | $LPCC -m $lpcc_order -M $cepstrum_order > $base.lpcc
+  
+#En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
+#la convertimos a raw y calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
