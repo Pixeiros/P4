@@ -48,10 +48,20 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
 	-m $mfcc_order > $base.mfcc
   
 #En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-#la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.lpcc.
+#la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+#### PARÁMETROS LPCC
+- lpc_order=8
+- lpcc_order=8
+- cepstrum_order=8
+  
+#### PARÁMETROS MFCC
+- mfcc_order=8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
