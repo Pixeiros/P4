@@ -28,26 +28,26 @@ ejercicios indicados.
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
   (LPCC), en su fichero <code>scripts/wav2lpcc.sh</code>:
   
-  > El pipeline siguiente es el usado para calcular los coeficientes de predicción lineal (LPCC) en el 
-    script wav2lpcc.sh:
+> El pipeline siguiente es el usado para calcular los coeficientes de predicción lineal (LPCC) en el 
+  script wav2lpcc.sh:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 |
 	$LPC -l 200 -m $lpc_order | $LPCC -m $lpcc_order -M $cepstrum_order > $base.lpcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-    la convertimos a raw, calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
+> En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
+  la convertimos a raw, calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
     
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
-  > El pipeline siguiente es el usado para calcular los coeficientes en l'escala Mel Cepstrum (MFCC) en 
-    el script wav2lpcc.sh:
+> El pipeline siguiente es el usado para calcular los coeficientes en l'escala Mel Cepstrum (MFCC) en 
+  el script wav2lpcc.sh:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
   sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 | $MFCC -l 200 
 	-m $mfcc_order > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-    la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
+> En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
+  la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
     
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
   
@@ -69,9 +69,9 @@ ejercicios indicados.
   <img src="img/mfcc.png" width="500" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
-   >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
-      el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
-      gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
+ >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
+    el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
+    gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
           
      <img src="img/matlab.png" width="300" align="center">
   
