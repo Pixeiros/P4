@@ -55,7 +55,7 @@ ejercicios indicados.
  > - lpc_order=8
  > - lpcc_order=8
  > - cepstrum_order=8
-  
+ > 
  > PARÁMETROS MFCC
  > - mfcc_order=8
 
