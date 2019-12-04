@@ -41,26 +41,23 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
+  El pipeline siguiente es el usado para calcular los coeficientes en l'escala Mel Cepstrum (MFCC) en 
+  el script wav2lpcc.sh:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-#El pipeline siguiente es el usado para calcular los coeficientes en l'escala Mel Cepstrum (MFCC) en 
-#el script wav2lpcc.sh:
 sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 | $MFCC -l 200 
 	-m $mfcc_order > $base.mfcc
-  
-#En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-#la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+  En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
+  la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-#### PARÁMETROS LPCC
-- lpc_order=8
-- lpcc_order=8
-- cepstrum_order=8
+  #### PARÁMETROS LPCC
+  - lpc_order=8
+  - lpcc_order=8
+  - cepstrum_order=8
   
-#### PARÁMETROS MFCC
-- mfcc_order=8
+  #### PARÁMETROS MFCC
+  - mfcc_order=8
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
@@ -85,6 +82,7 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
 
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
+  
   
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos. Comente el
   resultado obtenido y discuta si el modelado mediante GMM permite diferenciar las señales de uno y otro.
