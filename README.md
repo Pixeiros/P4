@@ -64,14 +64,24 @@ ejercicios indicados.
   
   <img src="img/lp.png" width="500" align="center">
   
+  > Los coeficientes están muy correlados por lo que no nos sirven tanto para la clasificación.
+  
   <img src="img/lpcc.png" width="500" align="center">
   
+  > Al obtener los coeficientes cepstrales LPC estos son más incorrelados por lo que son más adecuados para
+    la clasificación.
+    
   <img src="img/mfcc.png" width="500" align="center">
   
+  > Debido a que la percepción del oído humano no sigue la escala de frecuencias, es mejor cuando muestreamos 
+    la señal a la escala mel. Estos coeficientes son los más incorrelados, serán los mejores para la 
+    clasificación.
+  
   + ¿Cuál de ellas le parece que contiene más información?
- >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
-    el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
-    gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
+ >  La parametrización cuyos coeficientes tiene más información es la del MFCC, es el que nos proporciona los 
+    coeficientes más incorrelados. Para la dependencia entre el LP y el LPCC hemos de coger los coeficientes 3 
+    y 4, mientras para el MFCC el 2 y 3. Para generar la gráfica de dependencia entre los coeficientes hemos 
+    utilizado el matlab siguiente aplicado a un mismo archivo de audio.
           
    <img src="img/matlab.png" width="600" align="center">
   
