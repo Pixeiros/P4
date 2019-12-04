@@ -75,9 +75,9 @@ ejercicios indicados.
   <img src="img/mfcc.png" width="500" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-    La parametrización cuyos coeficientes tiene más información es la del MFCC.
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
+ >  el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3.
+  
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
