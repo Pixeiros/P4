@@ -35,8 +35,8 @@ ejercicios indicados.
 	$LPC -l 200 -m $lpc_order | $LPCC -m $lpcc_order -M $cepstrum_order > $base.lpcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-    la convertimos a raw, calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
+   En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
+   la convertimos a raw, calculamos sus coeficientes LPCC y los guardamos en un fichero.lpcc.
 
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
@@ -49,8 +49,8 @@ ejercicios indicados.
 	-m $mfcc_order > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
-    la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
+   En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
+   la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
   
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
   
@@ -76,7 +76,7 @@ ejercicios indicados.
       el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
       gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
           
-     <img src="img/matlab.png" width="500" align="center">
+     <img src="img/matlab.png" width="300" align="center">
   
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
