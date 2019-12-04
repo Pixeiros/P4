@@ -73,7 +73,7 @@ ejercicios indicados.
     el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
     gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
           
-   <img src="img/matlab.png" width="300" align="center">
+   <img src="img/matlab.png" width="600" align="center">
   
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
