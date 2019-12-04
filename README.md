@@ -68,9 +68,14 @@ ejercicios indicados.
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
   
-  *La imagen siguiente es un ejemplo de cómo insertar imágenes en markdown*
+  	Coeficientes LP
+  <img src="img/lp.png" width="500" align="center">
   
-  <img src="img/tanh.png" width="640" align="center">
+  	Coeficientes LPCC
+  <img src="img/lpcc.png" width="500" align="center">
+  
+  	Coeficientes MFCC
+  <img src="img/mfcc.png" width="500" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
 
