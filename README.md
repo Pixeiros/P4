@@ -76,26 +76,26 @@ ejercicios indicados.
       el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
       gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
 
-     ####'%% Abrimos coeficientes LP'
-     
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+      '%% Abrimos coeficientes LP'     
      	fileID = fopen('lp_3_4.txt','r');
 	formatSpec = '%f';
 	sizeA = [2 Inf];
 	LP = fscanf(fileID,formatSpec,sizeA);
 	LP = LP';
-	%% Abrimos coeficientes LPCC %%
+      '%% Abrimos coeficientes LPCC'
 	fileID = fopen('lpcc_3_4.txt','r');
 	formatSpec = '%f';
 	sizeA = [2 Inf];
 	LPCC = fscanf(fileID,formatSpec,sizeA);
 	LPCC = LPCC';
-	%% Abrimos coeficientes LP %%
+      '%% Abrimos coeficientes LP'
 	fileID = fopen('mfcc_3_4.txt','r');
 	formatSpec = '%f';
 	sizeA = [2 Inf];
 	MFCC = fscanf(fileID,formatSpec,sizeA);
 	MFCC = MFCC';
-	%% Plots %%
+      '%% Plots'
 	figure (1)
 	plot(LP(:,1),LP(:,2),'.r');
 	title('Coeficientes LP');
