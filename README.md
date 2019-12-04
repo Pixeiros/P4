@@ -50,13 +50,13 @@ ejercicios indicados.
     la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
     
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
-  >
-  #### PARÁMETROS LPCC
+  
+ > PARÁMETROS LPCC
    - lpc_order=8
    - lpcc_order=8
    - cepstrum_order=8
-  >
-  #### PARÁMETROS MFCC
+  
+ > PARÁMETROS MFCC
    - mfcc_order=8
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
