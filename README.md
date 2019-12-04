@@ -75,39 +75,9 @@ ejercicios indicados.
    >  La parametrización cuyos coeficientes tiene más información es la del MFCC. Para la dependencia entre
       el LP y el LPCC hemos de coger los coeficientes 3 y 4, mientras para el MFCC el 2 y 3. Para generar la 
       gráfica de dependencia entre los coeficientes hemos utilizado el matlab siguiente:
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-      '%% Abrimos coeficientes LP'     
-     	fileID = fopen('lp_3_4.txt','r');
-	formatSpec = '%f';
-	sizeA = [2 Inf];
-	LP = fscanf(fileID,formatSpec,sizeA);
-	LP = LP';
-      '%% Abrimos coeficientes LPCC'
-	fileID = fopen('lpcc_3_4.txt','r');
-	formatSpec = '%f';
-	sizeA = [2 Inf];
-	LPCC = fscanf(fileID,formatSpec,sizeA);
-	LPCC = LPCC';
-      '%% Abrimos coeficientes LP'
-	fileID = fopen('mfcc_3_4.txt','r');
-	formatSpec = '%f';
-	sizeA = [2 Inf];
-	MFCC = fscanf(fileID,formatSpec,sizeA);
-	MFCC = MFCC';
-      '%% Plots'
-	figure (1)
-	plot(LP(:,1),LP(:,2),'.r');
-	title('Coeficientes LP');
-	figure (2)
-	plot(LPCC(:,1),LPCC(:,2),'.r');
-	title('Coeficientes LPCC');
-	figure (3)
-	plot(MFCC(:,1),MFCC(:,2),'.r');
-	title('Coeficientes MFCC');
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+          
+     <img src="img/matlab.png" width="500" align="center">
   
-
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
 
