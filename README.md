@@ -59,7 +59,6 @@ ejercicios indicados.
   
   ##### PARÁMETROS MFCC
   - mfcc_order=8
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
@@ -84,8 +83,7 @@ ejercicios indicados.
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
   
-  <img src="img/1.png" width="500" align="right"> 
-  <img src="img/3.png" width="500" align="left">
+  <img src="img/1.png" width="500" align="right"> <img src="img/3.png" width="500" align="left">
   
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos. Comente el
   resultado obtenido y discuta si el modelado mediante GMM permite diferenciar las señales de uno y otro.
