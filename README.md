@@ -56,12 +56,12 @@ ejercicios indicados.
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-  ##### PARÁMETROS LPCC
+  PARÁMETROS LPCC
   - lpc_order=8
   - lpcc_order=8
   - cepstrum_order=8
   
-  ##### PARÁMETROS MFCC
+  PARÁMETROS MFCC
   - mfcc_order=8
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
