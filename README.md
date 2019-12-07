@@ -99,7 +99,8 @@ ejercicios indicados.
  > Podemos ver como con Pearson también son más incorrelados los valores de MFCC. Para cada Feature se muestra el valor de la autocovarianza normalizada seguida de rho[feature][cof]. Estos valores dentro de cada feature están ordenados de mayor a menor según su valor absoluto. Cogemos el el [2,3] para evaluar el MFCC y el [3,4] para el LP y LPCC.
   
   + Compare los resultados de <code>pearson</code> con los obtenidos gráficamente.
-  
+ > Al igual que hemos podido observar con las gráficas, los coeficientes MFCC son los que presentan una mayor incorrelación. Podemos ver que sus valores son mucho menores a los de LP o LPCC. Comprobamos así que el más útil para la clasificación nos sera el MFCC, ya que presenta valores más distintos.
+ 
 ### Entrenamiento y visualización de los GMM.
 
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
