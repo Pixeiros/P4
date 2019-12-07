@@ -68,7 +68,7 @@ ejercicios indicados.
   
   <img src="img/lpcc.png" width="500" align="center">
   
-  > Al obtener los coeficientes cepstrales LPC estos son más incorrelados por lo que son más adecuados para
+  > Al obtener los coeficientes cepstrales LPCC estos son más incorrelados por lo que son más adecuados para
     la clasificación.
     
   <img src="img/mfcc.png" width="500" align="center">
