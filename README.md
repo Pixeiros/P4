@@ -120,7 +120,7 @@ ejercicios indicados.
   
   <img src="img/3.png" width="700" align="center">
   
-  > 
+  > Vemos que en las gráficas superiores tenemos el modelo azul, primero con la clasificación del otro modelo y con su propio modelo. En las gráficas inferiores vemos lo mismo invertido. Vemos que si utilizamos el modelo de color azul sobre el rojo el resultado es aceptable, mientras que si aplicamos la clasificación del modelo rojo sobre el azul (como vemos en la primera imagen) el resultado es peor. El modelo GMM genera un modelo muy especifico para cada uno, en nuestro caso no hay mucha diferencia por lo que funciona bien al aplicarse sobre otros modelos. Aún así, depende mucho del modelo utilizado.
 
 ### Reconocimiento del locutor.
 
