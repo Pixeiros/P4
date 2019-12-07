@@ -119,6 +119,8 @@ ejercicios indicados.
   resultado obtenido y discuta si el modelado mediante GMM permite diferenciar las señales de uno y otro.
   
   <img src="img/1.png" width="700" align="center">
+  
+  > 
 
 ### Reconocimiento del locutor.
 
