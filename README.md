@@ -90,7 +90,13 @@ ejercicios indicados.
 
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | &rho;<sub>x</sub>[2,3] |      |      |      |
+  | &rho;<sub>x</sub>[2,3] |-0.654|0.2867|0.0799|
+  
+  |                        | LP   | LPCC | MFCC |
+  |------------------------|:----:|:----:|:----:|
+  | &rho;<sub>x</sub>[3,4] |-0.586|0.4439|0.0803|
+  
+ > Podemos ver como con Pearson también son más incorrelados los valores de MFCC. Para cada Feature se muestra el valor de la autocovarianza normalizada seguida de rho[feature][cof]. Estos valores dentro de cada feature están ordenados de mayor a menor según su valor absoluto. Cogemos el el [2,3] para evaluar el MFCC y el [3,4] para el LP y LPCC.
   
   + Compare los resultados de <code>pearson</code> con los obtenidos gráficamente.
   
