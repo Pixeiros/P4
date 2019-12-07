@@ -101,8 +101,10 @@ ejercicios indicados.
  >  <img src="img/pearsonlp.png" width="500" align="center">
  >  ...
  >
+ >
  >  <img src="img/pearsonlpcc.png" width="500" align="center">
  >  ...
+ >
  >
  >  <img src="img/pearsonmfcc.png" width="500" align="center">
  >  ...
