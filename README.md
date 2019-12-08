@@ -128,7 +128,7 @@ ejercicios indicados.
   
   |              | LP   | LPCC | MFCC |
   |--------------|:----:|:----:|:----:|
-  |Tasa de error |4.71% | 5.48%| 2.93%|
+  |Tasa de error |12.36%| 5.48%| 2.93%|
   
   > Hemos conseguido las tasas de error anteriores utilizando 8 gaussianas, 40 iteraciones y un threshold de 0.0001. La inicialización se ha realizado con el algoritmo VQ, concretando -i 1 en el gmm_train.
 
