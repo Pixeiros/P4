@@ -128,7 +128,7 @@ ejercicios indicados.
   
   |            | LP   | LPCC | MFCC |
   |------------|:----:|:----:|:----:|
-  | tasa error |      |      |      |
+  | Tasa de error |      |      |      |
 
 ### Verificación del locutor.
 
@@ -139,7 +139,7 @@ ejercicios indicados.
   
   |        | LP   | LPCC | MFCC |
   |--------|:----:|:----:|:----:|
-  | score  |      |      |      |
+  | Score  |      |      |      |
  
 ### Test final y trabajo de ampliación.
 
