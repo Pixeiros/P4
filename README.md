@@ -41,10 +41,10 @@ ejercicios indicados.
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
 > El pipeline siguiente es el usado para calcular los coeficientes en l'escala Mel Cepstrum (MFCC) en 
-  el script wav2lpcc.sh:
+  el script wav2mfcc.sh:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-  sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 | $MFCC -l 200 
-	-m $mfcc_order > $base.mfcc
+  sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 |
+	$MFCC -l 200 -m $mfcc_order -n $filters -s $frequency > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 > En el imputfile hemos puesto la señal de audio grabada en la primera pràctica llamada pav_4393.wav, 
   la convertimos a raw, calculamos sus coeficientes MFCC y los guardamos en un fichero.mpcc.
