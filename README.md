@@ -58,6 +58,8 @@ ejercicios indicados.
  > 
  > **PARÁMETROS MFCC**
  > - mfcc_order=8
+ > - filters=20
+ > - frequency=8kHz
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
