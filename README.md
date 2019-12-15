@@ -128,9 +128,9 @@ ejercicios indicados.
   
   |              | LP   | LPCC | MFCC |
   |--------------|:----:|:----:|:----:|
-  |Tasa de error |00.00%| 0.51%| 0.00%|
+  |Tasa de error | 3.57%| 0.51%| 0.00%|
   
-  > Hemos conseguido las tasas de error anteriores utilizando 600 gaussianas, 30 iteraciones y un threshold de 0.001. La inicialización se ha realizado con el algoritmo VQ, concretando -i 1 en el gmm_train.
+  > Hemos conseguido las tasas de error anteriores utilizando 600 gaussianas, 30 iteraciones y un threshold de 0.0001. La inicialización se ha realizado con el algoritmo VQ, concretando -i 1 en el gmm_train.
 
 ### Verificación del locutor.
 
@@ -141,10 +141,10 @@ ejercicios indicados.
   
   |        	   | LP   | LPCC | MFCC |
   |----------------|:----:|:----:|:----:|
-  | Score 	   | 00.0%| 18.8%|  00% |
-  | Umbral óptimo  |00.000| 0.663|000.00|
-  | Falsa alarma   | 0.000| 0.000| 0.000|
-  | Pérdidas       | 0.000| 0.188| 0.000|
+  | Score 	   | 70.3%|  9.2%|  00% |
+  | Umbral óptimo  | 0.857| 0.656|000.00|
+  | Falsa alarma   | 0.001| 0.000| 0.000|
+  | Pérdidas       | 0.604| 0.092| 0.000|
  
 ### Test final y trabajo de ampliación.
 
