@@ -16,6 +16,8 @@ lists=lists
 w=work
 name_exp=one
 db=spk_ima/speecon
+world=users_and_others
+db_final=spk_ima/sr_test
 
 # ------------------------
 # Usage
@@ -88,7 +90,7 @@ compute_lp() {
 compute_lpcc() {
     for filename in $(cat $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2lpcc 8 8 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2lpcc 24 24 24 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
@@ -96,7 +98,7 @@ compute_lpcc() {
 compute_mfcc() {
     for filename in $(cat $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2mfcc 16 24 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2mfcc 16 20 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
@@ -131,7 +133,7 @@ for cmd in $*; do
            name=${dir/*\/}
            echo $name ----
           # gmm_train  -v 1 -T 0.0001 -N20 -m 5 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
-           gmm_train -v 1 -T 0.001 -N 40 -m 8 -i 1 -n 40 -t 0.001 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           gmm_train -v 1 -T 0.001 -N 100 -m 30 -i 1 -n 100 -t 0.0001 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
        done
    elif [[ $cmd == test ]]; then
@@ -156,6 +158,10 @@ for cmd in $*; do
 	   #
 	   # - The name of the world model will be used by gmm_verify in the 'verify' command below.
        echo "Implement the trainworld option ..."
+
+        echo $name ----
+        gmm_train  -v 1 -T 0.0001 -N 300 -m 50 -d $w/$FEAT -i 1 -e $FEAT -g $w/gmm/$FEAT/$world.gmm $lists/verif/$world.train || exit 1
+        echo
    elif [[ $cmd == verify ]]; then
        ## @file
 	   # \TODO 
@@ -165,7 +171,9 @@ for cmd in $*; do
 	   #   For instance:
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
-       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
+       
+       # gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w $world $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
        echo "Implement the verify option ..."
 
    elif [[ $cmd == verifyerr ]]; then
@@ -184,7 +192,29 @@ for cmd in $*; do
 	   # The list of users is the same as for the classification task. The list of files to be
 	   # recognized is lists/final/class.test
        echo "To be implemented ..."
-   
+
+        for filename in $(cat $lists/final/class.test); do
+            mkdir -p `dirname $w/$FEAT/final/$filename.$FEAT`
+            EXEC="wav2lpcc 24 24 24 $db_final/$filename.wav $w/$FEAT/final/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        done
+
+        #gmm_classify -d $w/$FEAT/final -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list $lists/final/class.test | tee $w/final/class_test.log
+        find $w/gmm/$FEAT -name '*.gmm' -printf '%P\n' | perl -pe 's/.gmm$//' | sort  > $lists/gmm.list
+        (gmm_classify -d $w/$FEAT/final -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list $lists/final/class.test | tee $w/final/class_ampl.log) || exit 1
+
+
+        if [[ ! -s $w/final/class_test.log ]] ; then
+          echo "ERROR: $w/final/class_test.log not created"
+          exit 1
+        fi
+        # Count errors
+        perl -ne 'BEGIN {$ok=0; $err=0}
+                next unless /^.*SA(...).*SES(...).*$/; 
+                if ($1 == $2) {$ok++}
+                else {$err++}
+                END {printf "nerr=%d\tntot=%d\terror_rate=%.2f%%\n", ($err, $ok+$err, 100*$err/($ok+$err))}' $w/final/class_test.log | tee $w/final/class_test.log
+
    elif [[ $cmd == finalverif ]]; then
        ## @file
 	   # \TODO
@@ -193,7 +223,21 @@ for cmd in $*; do
 	   # is lists/final/verif.test, and the list of users claimed by the test files is
 	   # lists/final/verif.test.candidates
        echo "To be implemented ..."
-   
+
+        for filename in $(cat $lists/final/verif.test); do
+            mkdir -p `dirname $w/$FEAT/final/$filename.$FEAT`
+            EXEC="wav2lpcc 24 24 24 $db_final/$filename.wav $w/$FEAT/final/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        done 
+
+        gmm_verify -d $w/$FEAT/final -e $FEAT -D $w/gmm/$FEAT -E gmm -w $world $lists/gmm.list $lists/final/verif.test $lists/final/verif.test.candidates | tee $w/final/verif_ampl.log
+
+        if [[ ! -s $w/final/verif_test.log ]] ; then
+            echo "ERROR: $w/final/verif_test.log not created"
+            exit 1
+        fi
+
+       spk_verif_score $w/final/verif_test.log | tee $w/final/verif_test.res
    # If the command is not recognize, check if it is the name
    # of a feature and a compute_$FEAT function exists.
    elif [[ "$(type -t compute_$cmd)" = function ]]; then

@@ -41,8 +41,8 @@ else
 fi
 
 # Main command for feature extration
-sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 |
-	$MFCC -l 200 -m $mfcc_order -n $num_filters -s $freq > $base.mfcc
+sox $inputfile -t raw - | $X2X +sf | $FRAME -l 400 -p 10 |
+	$MFCC -l 400 -m $mfcc_order -n $num_filters -s $freq > $base.mfcc
 
 # Our array files need a header with the number of cols and rows:
 ncol=$mfcc_order # mfcc p =>  (gain a1 a2 ... ap) 

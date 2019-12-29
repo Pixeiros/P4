@@ -43,8 +43,8 @@ else
 fi
 
 # Main command for feature extration
-sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200 |
-	$LPC -l 200 -m $lpc_order | $LPCC -m $lpcc_order -M $cepstrum_order > $base.lpcc
+sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 400 -p 10 | $WINDOW -w 1 -n 1 -l 400 -L 400 |
+	$LPC -l 400 -m $lpc_order | $LPCC -m $lpcc_order -M $cepstrum_order > $base.lpcc
 
 # Our array files need a header with the number of cols and rows:
 ncol=$((lpcc_order+1)) # lpcc p =>  (gain a1 a2 ... ap) 
